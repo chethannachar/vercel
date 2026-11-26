@@ -36,7 +36,7 @@ def get_database_url() -> str:
 app = FastAPI(title="Authentication API")
 allowed_origins = [
     "http://localhost:5173",
-    "https://vercel-4ode.vercel.app",
+    "https://vercel-rfqg.vercel.app/",
 ]
 frontend_url = os.getenv("FRONTEND_URL")
 if frontend_url:
