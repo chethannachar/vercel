@@ -36,17 +36,20 @@ def get_database_url() -> str:
 app = FastAPI(title="Authentication API")
 allowed_origins = [
     "http://localhost:5173",
-    "https://vercel-rfqg.vercel.app/",
+    "https://vercel-rfqg.vercel.app",
 ]
 frontend_url = os.getenv("FRONTEND_URL")
 if frontend_url:
-    allowed_origins.append(frontend_url.rstrip("/"))
+    frontend_origin = frontend_url.rstrip("/")
+    if frontend_origin not in allowed_origins:
+        allowed_origins.append(frontend_origin)
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["Content-Type", "Authorization"],
+    allow_credentials=False,
 )
 
 

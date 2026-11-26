@@ -28,11 +28,11 @@ Follow these steps in order:
 8. **Configure `VITE_API_BASE_URL`.** In the frontend project's **Settings → Environment Variables**, set it to the deployed backend origin, without a path:
 
    ```text
-   VITE_API_BASE_URL=https://your-backend-project.vercel.app
+   VITE_API_BASE_URL=https://vercel-teal-beta-32.vercel.app
    ```
 
    Redeploy the frontend after setting this value because Vite embeds it at build time.
-9. **Set `FRONTEND_URL` in the backend Vercel project** to the exact frontend origin, for example `https://your-frontend-project.vercel.app`, with no path or trailing slash.
+9. **Set `FRONTEND_URL` in the backend Vercel project** to `https://vercel-rfqg.vercel.app`, with no path or trailing slash. This production origin is also explicitly allowed in the backend; the environment variable supports additional frontend origins.
 10. **Redeploy the backend** so its CORS middleware loads the updated frontend origin.
 11. **Test registration and login.** Open the deployed frontend, register with any username text and a password (8–72 characters), and then log in with the same username text. Duplicate usernames are rejected and failed login credentials receive a generic error.
 
